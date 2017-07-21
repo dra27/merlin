@@ -490,7 +490,7 @@ function! merlin#Phrase()
 endfunction
 
 function! merlin#Register()
-  if @% == "*merlin-type-history*"
+  if @% == ":merlin-type-history:"
     return
   endif
 
