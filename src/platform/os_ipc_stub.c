@@ -52,7 +52,7 @@ ml_merlin_set_environ(value venviron)
 
   size_t i, j;
 
-  for (i = 0, j = 0; i < length; ++i)
+  for (i = 0, j = 0; i <= length; ++i)
   {
     if (buffer[i] == '\0')
     {
