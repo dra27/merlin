@@ -134,7 +134,7 @@ let run = function
         1
 
 let run env wd args =
-  Os_ipc.merlin_set_environ env;
+  (*Os_ipc.merlin_set_environ env;*)
   Unix.putenv "__MERLIN_MASTER_PID" (string_of_int (Unix.getpid ()));
   let wd_msg = match wd with
     | None -> "No working directory specified"
