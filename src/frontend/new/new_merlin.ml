@@ -135,8 +135,10 @@ let run = function
 
 let run env wd args =
   Printf.eprintf "env = %S\n" env;
-  Printf.eprintf "Prior to erasing, this was the environment:\n  %s\n%!" (String.concat "\n  " (Array.to_list (Unix.environment ())));
+(*  Printf.eprintf "Prior to erasing, this was the environment:\n  %s\n%!" (String.concat "\n  " (Array.to_list (Unix.environment ())));*)
+  Printf.eprintf "Prior to reset, PATH=%s\n%!" (Unix.getenv "PATH");
   Os_ipc.merlin_set_environ env;
+  Printf.eprintf "After reset, PATH=%s\n%!" (try Unix.getenv "PATH" with Not_found -> "NOT SET!!!");
   Unix.putenv "__MERLIN_MASTER_PID" (string_of_int (Unix.getpid ()));
   let wd_msg = match wd with
     | None -> "No working directory specified"
