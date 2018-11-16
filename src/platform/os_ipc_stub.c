@@ -56,6 +56,8 @@ ml_merlin_set_environ(value venviron)
   {
     if (buffer[i] == '\0')
     {
+      fprintf(stderr, "Stub processing %s\n", &buffer[j]);
+      fflush(stderr);
       putenv(&buffer[j]);
       j = i + 1;
     }
